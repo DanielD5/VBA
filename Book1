@@ -1,0 +1,53 @@
+Sub Ìàêðîñ1()
+'
+' Ìàêðîñ1 Ìàêðîñ
+'
+
+'
+'êîïèðóåì íàøó òàáëèöó â äðóãîé ëèñò, ÷òîáû òàì óæå åå îòñîðòèðîâàòü è ñîõðàíüòü èñõîäíóþ òàáëèöó íåèçìåííîé.
+    Range("A1:D6").Select
+    Selection.Copy
+    Sheets("Ëèñò2").Select
+    Range("A1").Select
+    ActiveSheet.Paste
+    Application.CutCopyMode = False
+    
+    ActiveWorkbook.Worksheets("Ëèñò2").Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("Ëèñò2").Sort.SortFields.Add Key:=Range("C2"), _
+        SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+    With ActiveWorkbook.Worksheets("Ëèñò2").Sort
+        .SetRange Range("A2:D6")
+        .Header = xlNo
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+End Sub
+
+Sub Ìàêðîñ2()
+'
+' Ìàêðîñ2 Ìàêðîñ
+'
+
+'
+ 'êîïèðóåì íàøó òàáëèöó â äðóãîé ëèñò, ÷òîáû òàì óæå åå îòñîðòèðîâàòü è ñîõðàíüòü èñõîäíóþ òàáëèöó íåèçìåííîé.
+    Range("A1:D6").Select
+    Selection.Copy
+    Sheets("Ëèñò3").Select
+    Range("A1").Select
+    ActiveSheet.Paste
+    Application.CutCopyMode = False
+    
+    ActiveWorkbook.Worksheets("Ëèñò3").Sort.SortFields.Clear
+    ActiveWorkbook.Worksheets("Ëèñò3").Sort.SortFields.Add Key:=Range("D2"), _
+        SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+    With ActiveWorkbook.Worksheets("Ëèñò3").Sort
+        .SetRange Range("A2:D6")
+        .Header = xlNo
+        .MatchCase = False
+        .Orientation = xlTopToBottom
+        .SortMethod = xlPinYin
+        .Apply
+    End With
+End Sub
